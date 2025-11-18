@@ -1,32 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
  <head>   
-   
+   <script>
+function validateForm() {
+  let x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+}
+</script>
 </head>
 <body>
     <h1 style="text-align: center; font-size: 50px; padding: 40px; ">Customer Feedback</h1>
-<p style="font-family: sans-serif; font-size: 20px;">Please fill the form below. We value your true feedback and thank you for always trusting us.</p>
-<h2>Personal details</h2>
-<form>
+<p style="font-family: 'Times New Roman', Times, serif; font-size: 20px;">Please fill the form below. We value your true feedback and thank you for always trusting us.</p>
+
+<form name="myForm" onsubmit="return validateForm()" method="post">
+
+    <fieldset>
+        <legend style="font-size: 40px; font-family:'Times New Roman', Times, serif"> Personal Details:</legend>
+ <br><br>  
     <label for="fname"> First Name:</label>
-    <input type="text" id="fname" name="fname"  placeholder="e.g.Yaddehi" size="70" style="margin-right: 200px">
+    <input type="text" id="fname" name="fname"  placeholder="e.g.Yaddehi" size="70" style="margin-right: 200px"  autofocus >
     <label for="lname"> Last Name:</label>
-    <input type="text" id="lname" name="lname" placeholder="e.g. Shehan Kumara" size="70"> <br><br><br>
+    <input type="text" id="lname" name="lname" placeholder="e.g. Shehan Kumara" size="70" required> <br><br><br>
     <label for="rdname"> Residential Address:</label>
     <input type="text" id="rdname" name="rdname" size="62" style="margin-right:196px">
-    <label for="mname"> Mobile number:</label>
-    <input type="text" id="mname" name="mname" size="66"> <br><br><br>
+    <label for="phone"> Mobile number:</label>
+    <input type="tel" id="phone" name="phone" size="66" placeholder="071 80 27 877" pattern="[0-9]{3}-[0-9]{2}-[0-9][{2}-[0-9]{3}"> <br><br><br>
     <label for="pcname"> Postal Code:</label>
     <input type="text" id="pcname" name="pcname" size="70" style="margin-right: 193px">
-    <label for="ename"> Email:</label>
-    <input type="text" id="ename" name="ename" size="75">
-</form>
+    <label for="email"> Email:</label>
+    <input type="email" id="email" name="email" size="75" required><br><br><br>
+    <label for="sex">Gender<label>
+    <input list="gender" name="gender" id="sex" style="margin-right: 125px;">
+    <datalist id="gender">
+        <option value="Female">
+        <option value="Male">
+        </datalist>
+    <label for="dob">Date of Birthday</label>
+    <input type="date" id="dob" name="dob">
+   </fieldset>
 <br>
-<h2>Customer experiences</h2>
-<p>How satisfied are you with your overall experience?<p>
+<h2 style="font-size: 40px; font-family:'Times New Roman', Times, serif ">Customer experiences</h2>
+<p>How satisfied are you with your overall experience?</p>
 
-<form>
-    <input type="radio" id="">
+
+    <input type="radio" id="nots" name="test-stat" value="nots">
+    <label for="nots">Not satisfied</label> 
+    <input type="radio" id="sat" name="test-stat" value="nots">
+    <label for="sat">Satisfied</label> 
+    <input type="radio" id="verst" name="test-stat" value="nots">
+    <label for="verst">Very satisfied</label> 
+<br>
+<br>
+<p>How satisfied are you with the support you received?</p>
+
+    <input type="radio" id="nots1" name="test1-stat" value="nots1">
+    <label for="nots1">Not satisfied</label> 
+    <input type="radio" id="sat1" name="test1-stat" value="stat1">
+    <label for="sat1">Satisfied</label> 
+    <input type="radio" id="verst1" name="test1-stat" value="verst1">
+    <label for="verst1">Very satisfied</label> 
+<br>
+<br>
+<p>How well does the product/service meet your needs?</p>
+
+    <input type="radio" id="nots2" name="test2-stat" value="nots2">
+    <label for="nots2">Not satisfied</label> 
+    <input type="radio" id="sat2" name="test2-stat" value="stat2">
+    <label for="sat2">Satisfied</label> 
+    <input type="radio" id="verst2" name="test2-stat" value="verst2">
+    <label for="verst2">Very satisfied</label> 
+<br>
+<br>
+<br>
+<p>What aspects did you like the most? (Select all that apply)</p>   
+
+    <input type="checkbox" id="quality" name="test-prod" value="quality">
+    <label for="quality"> Product Quality</label><br><br>
+    <input type="checkbox" id="price" name="test-prod" value="price">
+    <label for="price"> Price</label><br><br>
+    <input type="checkbox" id="service" name="test-prod" value="service">
+    <label for="service">Customer Service</label><br><br>
+    <input type="checkbox" id="del" name="test-prod" value="del">
+    <label for="del">delivery</label><br><br>
+    <input type="checkbox" id="app" name="test-prod" value="app">
+    <label for="app">App Usability</label><br><br>
+    <input type="checkbox" id="oth" name="test-prod" value="oth">
+    <label for="oth">Other</label><br><br>
+    <textarea name="message" rows="7" cols="99" placeholder="if you select other option, then write here"></textarea>
+
+<br>
+<br>
+<p>What improvements would you like to see? (Select all that apply)</p>
+
+    <input type="checkbox" id="bet" name="test-imp" value="navigation">
+    <label for="bet">Better navigation</label><br><br>
+    <input type="checkbox" id="fast" name="test-imp" value="loading">
+    <label for="fast">Faster loading</label><br><br>
+    <input type="checkbox" id="info" name="test-imp" value="information">
+    <label for="info">More product information</label><br><br>
+    <input type="checkbox" id="pay" name="test-imp" value="payment">
+    <label for="pay">More payment options</label><br><br>
+    <input type="checkbox" id="oth" name="test-prod" value="oth">
+    <label for="oth">Other</label><br><br>
+    <textarea name="message" rows="7" cols="99" placeholder="if you select other option, then write here"></textarea>
+<br>
+<br>
+<p>How easy was it to find what you were looking for?</p>
+ 
+    <label for="answer">Choose an answer:</label>
+    <select id="answer" name="answer">
+        <option value="select"></option>
+        <option value="very easy">Very easy</option>
+        <option value="easy">Easy</option>
+        <option value="average">Average</option>
+        <option value="difficult">Difficult</option>
+    </select>
+<br><br><br>
+<p>How many items have you purchased from us so far?</p>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="0" max="100" step="5" ><br><br>
+
+<p>How many marks would you give for the following criteria?</p>
+        <label for="available">Availability (between 1 and 10):</label>
+        <input type="number" id="available" name="available" min="1" max="10"><br><br>
+        <label for="social">Social media (between 0-100):</label>
+        <input type="range" id="social" name="social" min="0" max="100">
+        
+<br><br><br>
+<p>If you have experienced damaged goods or late delivery, please attach any proof documents here. 
+    You may include receipts, screenshots of your complaints, or any other relevant evidence.
+     We are committed to providing a solution for all your concerns.</p>
+<br><br><br>
+    <label for="doc">Select a file:</label>
+    <input type="file" id="doc" name="doc" multiple>
+<br><br><br>
+<input type="submit" value="Submit" onclick="alert('Are you sure you want to submit?')">
+<input type="reset" value="Reset">
+
+
+</form>
+
+
+
 </body>
 
 </html>
